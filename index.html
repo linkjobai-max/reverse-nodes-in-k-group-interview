@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reverse Nodes in k-Group: A Calm Way to Handle Pointer Surgery</title><style>body{max-width:720px;margin:40px auto;font-family:system-ui,sans-serif;line-height:1.6;padding:0 16px}</style></head><body>
+<h1>Reverse Nodes in k-Group: A Calm Way to Handle Pointer Surgery</h1>
+<p>Reverse Nodes in k-Group asks you to reverse a linked list k nodes at a time, leaving a final group of fewer than k nodes untouched. It is a favorite because it tests whether you can keep several pointers straight under pressure.</p>
+<p>Start with a dummy node in front of the head. Keep a pointer groupPrev that sits just before the current group. Walk k steps from groupPrev to find the kth node; if you run out of nodes, stop, because the tail stays as-is.</p>
+<p>Once you know the group exists, remember groupNext = kth.next. Reverse the group with the standard three-pointer loop, but initialize prev to groupNext instead of null, so the reversed group is already attached to the rest of the list. Then connect groupPrev.next to kth (the new head of the group), and move groupPrev to the old first node, which is now the group's tail.</p>
+<p>The whole pass is O(n) time and O(1) extra space. A recursive version is shorter but uses O(n/k) stack, which is worth mentioning as a tradeoff.</p>
+<p>Interview tips: draw three groups on the whiteboard before coding, name your pointers clearly (groupPrev, kth, groupNext), and test with k = 1 (no change), k equal to the list length, and a list whose length is not a multiple of k.</p>
+<p>If you get stuck, explain which pointer you are unsure about. Interviewers reward a clear narration of pointer state more than a fast but silent attempt.</p>
+<p>Disclosure: I work on Linkjob AI. If you want to practice explaining problems like this out loud, the <a href="https://www.linkjob.ai/">Linkjob AI interview assistant</a> can help during mock sessions.</p>
+</body></html>
